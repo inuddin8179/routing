@@ -1,25 +1,22 @@
-import { useState } from 'react'
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import LandingPage from './LandingPage';
+import HomePage from './HomePage';
+import ContactPage from './ContactPage';
 import AboutPage from './AboutPage';
-import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-    <>
-     <Router>
-       <nav>
-        <Link to="/">Home</Link> | <Link to="/about">About</Link>
+    <Router>
+      <nav>
+        <Link to="/">Home</Link> | <Link to="/contact">Contact</Link> | <Link to="/about">About</Link>
       </nav>
       <Routes>
-        <Route path="/" element={<LandingPage />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/contact" element={<ContactPage />} />
         <Route path="/about" element={<AboutPage />} />
       </Routes>
     </Router>
-    </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
